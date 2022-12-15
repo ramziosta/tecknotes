@@ -9,7 +9,9 @@ const cors = require("cors");
 const corsOptions = require("./config/corsOptions");
 const connectDB = require("./config/dbConn");
 const mongoose = require("mongoose");
-const employeeRoutes = require("./routes/employees");
+const {employeeRouter, userRouter } = require("./routes/users");
+// const userRoutes = require("./routes/users");
+const noteRoutes = require("./routes/notes");
 const PORT = process.env.PORT || 3500;
 
 console.log(process.env.NODE_ENV);
@@ -32,7 +34,9 @@ app.use("/", express.static(path.join(__dirname, "public")));
 
 app.use("/", require("./routes/root"));
 
-app.use('/employees', employeeRoutes);
+app.use('/employees', employeeRouter);
+app.use("/user", userRouter);
+app.use('/notes', noteRoutes);
 
 app.all("*", (req, res) => {
   res.status(404);

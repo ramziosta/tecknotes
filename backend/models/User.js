@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const employeeSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
@@ -12,7 +12,7 @@ const employeeSchema = new mongoose.Schema({
   roles: [
     {
       type: String,
-      default: "Employee",
+      default: "user",
     },
   ],
   active: {
@@ -21,4 +21,4 @@ const employeeSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Employees", employeeSchema);
+module.exports = mongoose.model("employee", userSchema);
