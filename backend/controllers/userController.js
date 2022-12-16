@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const Note = require("../models/Note");
+
 // handles the try catch blocks in async functions, no need to write them out
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcrypt");
